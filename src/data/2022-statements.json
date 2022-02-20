@@ -1,0 +1,34 @@
+[
+  {
+    "statement": "Matnat er best",
+    "parties": {
+      "ListeA": 2,
+      "ListeB": -2,
+      "ListeC": 2
+    }
+  },
+  {
+    "statement": "Jeg vil ha mer penger til studenter, fordi jeg mener det er mye bedre enn andre ting.",
+    "parties": {
+      "ListeA": -2,
+      "ListeB": 2,
+      "ListeC": 2
+    }
+  },
+  {
+    "statement": "Jeg vil ha mer penger til studenter",
+    "parties": {
+      "ListeA": -2,
+      "ListeB": 2,
+      "ListeC": 2
+    }
+  },
+  {
+    "statement": "Bedre kantiner",
+    "parties": {
+      "ListeA": -2,
+      "ListeB": 1,
+      "ListeC": 1
+    }
+  }
+]
