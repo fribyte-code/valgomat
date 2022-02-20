@@ -13,8 +13,12 @@ Valgomaten er basert på NRK valgomat sin mattematik som ligger åpen tilgjengel
 - [ ] Infoboks om valgomaten
 - [ ] Kunne deploye valgomaten inni for eksempel en wordpress side
 - [ ] Lett kunne bytte ut spørsmål og svar på valgomaten neste år
-- [ ] Vise en lett oversikt over hvor enig man er med hver liste
-- [ ] Fungere med keyboard
+- [x] Vise en lett oversikt over hvor enig man er med hver liste
+- [x] Fungere med keyboard
+
+## Demo
+
+![Demo over valgomaten i bruk](./Valgomat-demo.gif)
 
 ## Utvikling
 
