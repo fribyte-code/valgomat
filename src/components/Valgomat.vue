@@ -41,6 +41,7 @@ function handleStatementSubmit(
     <Resultat :userPositions="userPositions" :statements="statements" />
     <br />
     <button @click="currentStatement = 0">Restart</button>
+    <p>Laget med kjærlighet av <a href="https://fribyte.no">friByte</a>.</p>
   </section>
 </template>
 
