@@ -2,14 +2,7 @@
 import { ref } from "vue";
 import StatementForm from "./StatementForm.vue";
 import Resultat from "./Resultat.vue";
-
-export type Statement = {
-  statement: string;
-  parties: {
-    [party: string]: StatementValue;
-  };
-};
-export type StatementValue = -2 | -1 | 0 | 1 | 2;
+import type { Statement, StatementValue } from "@/types";
 
 defineProps<{
   statements: Statement[];
@@ -31,7 +24,7 @@ function handleStatementSubmit(
 
 <template>
   <section id="valgomat">
-    <h1>Valgomat</h1>
+    <h1>Valgomat ({{ currentStatement + 1 }} / {{ statements.length }})</h1>
     <br />
     <StatementForm
       v-if="currentStatement < statements.length"
@@ -41,7 +34,8 @@ function handleStatementSubmit(
     <Resultat :userPositions="userPositions" :statements="statements" />
     <br />
     <button @click="currentStatement = 0">Restart</button>
-    <p>Laget med kjærlighet av <a href="https://fribyte.no">friByte</a>.</p>
+    <br />
+    <p>Laget med kjærlighet av <a href="https://fribyte.no">friByte.</a></p>
   </section>
 </template>
 

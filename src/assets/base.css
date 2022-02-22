@@ -48,9 +48,10 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
   }
-  a {
-    color: var(--color-text);
-  }
+}
+
+a {
+  color: var(--color-text);
 }
 
 *,

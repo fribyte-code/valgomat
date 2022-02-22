@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import type { Statement, StatementValue } from "./Valgomat.vue";
+import type { Statement, StatementValue } from "@/types";
 
 defineProps<{
   statement: Statement;
@@ -13,9 +13,9 @@ defineEmits<{
 const userValue = ref<StatementValue>(0);
 let options = {
   "Helt uenig": -2,
-  Uenig: -1,
+  "Litt Uenig": -1,
   "Litt enig": 1,
-  Enig: 2,
+  "Helt Enig": 2,
 };
 </script>
 
@@ -64,6 +64,7 @@ p {
 }
 .statement-options legend {
   font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .radio-option {
@@ -75,6 +76,7 @@ p {
 .radio-option label {
   text-transform: uppercase;
   font-size: 1.1rem;
+  text-align: center;
 }
 .radio-option input:checked + label {
   color: var(--color-heading);

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Statement, StatementValue } from "./Valgomat.vue";
+import type { StatementValue, Statement } from "@/types";
 import { distanceMap } from "@nrk/valg-valgomat-algoritme";
 import { computed } from "vue";
 
@@ -36,11 +36,20 @@ const distances = computed<{ [party: string]: number }>(() => {
 const orderedDistances = computed(() => {
   return Object.entries(distances.value).sort((a, b) => b[1] - a[1]);
 });
+
+const agreeMostWithParty = computed(() => orderedDistances.value[0][0]);
 </script>
 
 <template>
   <section id="valgomat-resultat">
     <h2>Resultat</h2>
+    <p>
+      Du er mest enig med <strong>{{ agreeMostWithParty }}</strong
+      >. Les mer om dem og andre lister
+      <a href="https://www.spuib.no/studentpolitiske-lister/" target="_blank"
+        >her.</a
+      >
+    </p>
     <div v-for="[party, dist] of orderedDistances" :key="party">
       <span class="result-text">
         <p>
@@ -61,7 +70,9 @@ const orderedDistances = computed(() => {
   flex-direction: column;
   gap: 1rem;
   width: 100%;
+  font-size: 1.3rem;
 }
+
 .result-text p {
   display: flex;
   flex-direction: row;
@@ -80,6 +91,6 @@ const orderedDistances = computed(() => {
 }
 .aggreement-bar .percentage-bar {
   height: 100%;
-  background-color: #12c4a7;
+  background-color: #ff8c4b;
 }
 </style>
