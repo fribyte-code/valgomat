@@ -40,7 +40,14 @@ function handleStatementSubmit(
     :statements="statements"
   />
   <br />
-  <button @click="currentStatement = 0">Restart</button>
+  <button
+    @click="
+      currentStatement = 0;
+      restart();
+    "
+  >
+    Restart
+  </button>
   <br />
   <p>Laget med kjærlighet av:</p>
   <p class="logos">
