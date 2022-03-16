@@ -3,12 +3,13 @@ import Valgomat from "./components/Valgomat.vue";
 import { csvStatementsToJson } from "./csvStatementsToJson";
 // Use `?raw` to import file as text https://vitejs.dev/guide/assets.html#importing-asset-as-string
 import fiktiveStatementsCsv from "./data/fiktive-statements.csv?raw";
+import Forside from "./components/Forside.vue";
 
 const fiktiveStatements = csvStatementsToJson(fiktiveStatementsCsv);
 </script>
 
 <template>
-  <Valgomat :statements="fiktiveStatements" />
+  <Forside :statements="fiktiveStatements" />
 </template>
 
 <style>
