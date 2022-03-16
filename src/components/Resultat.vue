@@ -46,9 +46,7 @@ const agreeMostWithParty = computed(() => orderedDistances.value[0][0]);
     <p>
       Du er mest enig med <strong>{{ agreeMostWithParty }}</strong
       >. Les mer om dem og andre lister
-      <a href="https://www.spuib.no/studentpolitiske-lister/" target="_blank"
-        >her.</a
-      >
+      <a href="https://www.studvalg.no/" target="_blank">her.</a>
     </p>
     <div v-for="[party, dist] of orderedDistances" :key="party">
       <span class="result-text">
