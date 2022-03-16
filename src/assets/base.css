@@ -81,3 +81,21 @@ input:hover,
 button:hover {
   cursor: pointer;
 }
+
+.button {
+  font-size: 1.3rem;
+  padding: 0.5rem 1.2rem;
+  background-color: white;
+  border: solid 2px var(--color-background);
+  border-radius: 1rem;
+  color: #1c2833;
+  font-weight: 300;
+  /* box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2); */
+}
+.button:hover,
+.button:target,
+.button:active {
+  background-color: var(--color-background);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  transition: all 100ms ease-in 0s;
+}

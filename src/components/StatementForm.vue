@@ -22,10 +22,13 @@ let options = {
 <template>
   <form
     class="statement-form"
-    @submit.prevent="$emit('submit', statement, userValue)"
+    @submit.prevent="
+      $emit('submit', statement, userValue);
+      userValue = 0;
+    "
   >
-    <fieldset class="statement-group">
-      <legend>{{ statement.statement }}</legend>
+    <div class="statement-group">
+      <legend class="statement-question">{{ statement.statement }}</legend>
       <span class="options">
         <span
           class="radio-option"
@@ -42,9 +45,9 @@ let options = {
           <label :for="'alternative-' + val.toString()">{{ option }}</label>
         </span>
       </span>
-    </fieldset>
+    </div>
     <br />
-    <button class="submit-btn" type="submit">Neste -></button>
+    <button class="submit-btn button" type="submit">Neste</button>
   </form>
 </template>
 
@@ -79,6 +82,9 @@ p {
   justify-content: space-around;
   gap: 1rem;
 }
+.statement-question {
+  text-align: center;
+}
 
 .radio-option {
   display: flex;
@@ -96,7 +102,8 @@ p {
 }
 
 .submit-btn {
-  padding: 1rem 0.75rem;
+  margin-top: 1.2rem;
+  padding: 0.7rem 0.75rem;
   border-radius: 9999px;
   font-weight: bold;
   width: 10rem;

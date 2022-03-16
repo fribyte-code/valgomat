@@ -3,9 +3,6 @@ import { ref } from "vue";
 import StatementForm from "./StatementForm.vue";
 import Resultat from "./Resultat.vue";
 import type { Statement, StatementValue } from "@/types";
-import studvestLogoSrc from "../assets/logos/studvestlogo.svg";
-import friByteSrc from "../assets/logos/friByte.svg";
-import spuibWhiteSrc from "../assets/logos/SPUIB_LOGO_MARK_WHITE.svg";
 
 defineProps<{
   statements: Statement[];
@@ -27,7 +24,9 @@ function handleStatementSubmit(
 </script>
 
 <template>
-  <h1>Valgomat ({{ currentStatement + 1 }} / {{ statements.length }})</h1>
+  <h1 v-if="currentStatement < statements.length">
+    Valgomat ({{ currentStatement + 1 }} / {{ statements.length }})
+  </h1>
   <br />
   <StatementForm
     v-if="currentStatement < statements.length"
@@ -41,6 +40,7 @@ function handleStatementSubmit(
   />
   <br />
   <button
+    class="restart-button button"
     @click="
       currentStatement = 0;
       restart();
@@ -49,18 +49,6 @@ function handleStatementSubmit(
     Restart
   </button>
   <br />
-  <p>Laget med kjærlighet av:</p>
-  <p class="logos">
-    <a href="https://studvest.no"
-      ><img class="logo" :src="studvestLogoSrc" alt="Studvest"
-    /></a>
-    <a href="https://fribyte.no"
-      ><img class="logo" :src="friByteSrc" alt="fribyte"
-    /></a>
-    <a href="https://www.spuib.no/"
-      ><img class="logo" :src="spuibWhiteSrc" alt="Studentparlamentet"
-    /></a>
-  </p>
 </template>
 
 <style scoped>
@@ -74,12 +62,17 @@ function handleStatementSubmit(
   max-width: 900px;
   margin: auto;
 }
-.logos {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+.restart-button {
+  margin-top: 3rem;
+  border: solid 1px rgb(53, 53, 53);
+  font-weight: normal;
+  font-size: 1rem;
 }
-.logo {
-  height: 45px;
+.restart-button:hover,
+.restart-button:active,
+.restart-button:target {
+  background-color: white;
+  color: white;
+  background-color: rgb(53, 53, 53);
 }
 </style>

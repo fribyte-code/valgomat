@@ -19,6 +19,8 @@ const fiktiveStatements = csvStatementsToJson(fiktiveStatementsCsv);
   max-width: 1280px;
   margin: 0 auto;
   padding: 1.2rem;
+  min-height: 100vh;
+  height: 1px; /* fix for stupid bug */
 
   font-weight: normal;
 }
