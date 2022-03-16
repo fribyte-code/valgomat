@@ -31,7 +31,11 @@ function handleStatementSubmit(
       :statement="statements[currentStatement]"
       @submit="handleStatementSubmit"
     />
-    <Resultat :userPositions="userPositions" :statements="statements" />
+    <Resultat
+      v-if="currentStatement >= statements.length"
+      :userPositions="userPositions"
+      :statements="statements"
+    />
     <br />
     <button @click="currentStatement = 0">Restart</button>
     <br />
