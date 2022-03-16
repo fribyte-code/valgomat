@@ -3,6 +3,9 @@ import { ref } from "vue";
 import StatementForm from "./StatementForm.vue";
 import Resultat from "./Resultat.vue";
 import type { Statement, StatementValue } from "@/types";
+import studvestLogoSrc from "../assets/logos/studvestlogo.svg";
+import friByteSrc from "../assets/logos/friByte.svg";
+import spuibWhiteSrc from "../assets/logos/SPUIB_LOGO_MARK_WHITE.svg";
 
 defineProps<{
   statements: Statement[];
@@ -31,18 +34,45 @@ function handleStatementSubmit(
     :statement="statements[currentStatement]"
     @submit="handleStatementSubmit"
   />
-  <Resultat :userPositions="userPositions" :statements="statements" />
+  <Resultat
+    v-if="currentStatement >= statements.length"
+    :userPositions="userPositions"
+    :statements="statements"
+  />
   <br />
-  <button
-    @click="
-      currentStatement = 0;
-      restart();
-    "
-  >
-    Restart
-  </button>
+  <button @click="currentStatement = 0">Restart</button>
   <br />
-  <p>Laget med kjærlighet av <a href="https://fribyte.no">friByte.</a></p>
+  <p>Laget med kjærlighet av:</p>
+  <p class="logos">
+    <a href="https://studvest.no"
+      ><img class="logo" :src="studvestLogoSrc" alt="Studvest"
+    /></a>
+    <a href="https://fribyte.no"
+      ><img class="logo" :src="friByteSrc" alt="fribyte"
+    /></a>
+    <a href="https://www.spuib.no/"
+      ><img class="logo" :src="spuibWhiteSrc" alt="Studentparlamentet"
+    /></a>
+  </p>
 </template>
 
-<style scoped></style>
+<style scoped>
+#valgomat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+.logos {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.logo {
+  height: 45px;
+}
+</style>

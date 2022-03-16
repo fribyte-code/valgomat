@@ -24,7 +24,7 @@
 
 /* semantic color variables for this project */
 :root {
-  --color-background: #FF8C4B;
+  --color-background: #ff8c4b;
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
 
@@ -50,8 +50,6 @@
     --color-text: var(--vt-c-text-dark-2);
   } */
 }
-
-
 
 a {
   color: var(--color-text);

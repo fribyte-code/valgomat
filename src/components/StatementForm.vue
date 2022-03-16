@@ -24,17 +24,23 @@ let options = {
     class="statement-form"
     @submit.prevent="$emit('submit', statement, userValue)"
   >
-    <fieldset class="statement-options">
+    <fieldset class="statement-group">
       <legend>{{ statement.statement }}</legend>
-      <span class="radio-option" v-for="(val, option) in options" :key="option">
-        <input
-          type="radio"
-          :value="val"
-          :id="'alternative-' + val.toString()"
-          v-model.number="userValue"
-          name="agreement"
-        />
-        <label for="'alternative-' + val.toString()">{{ option }}</label>
+      <span class="options">
+        <span
+          class="radio-option"
+          v-for="(val, option) in options"
+          :key="option"
+        >
+          <input
+            type="radio"
+            :value="val"
+            :id="'alternative-' + val.toString()"
+            v-model.number="userValue"
+            name="agreement"
+          />
+          <label :for="'alternative-' + val.toString()">{{ option }}</label>
+        </span>
       </span>
     </fieldset>
     <br />
@@ -53,18 +59,25 @@ p {
   font-weight: bold;
 }
 
-.statement-options {
+.statement-group {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
   min-width: 350px;
-  padding: 2rem 0.8rem;
+  padding: 1rem 0.8rem;
 }
-.statement-options legend {
+.statement-group legend {
+  float: left;
   font-size: 1.5rem;
   font-weight: 500;
+}
+.statement-group .options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 1rem;
 }
 
 .radio-option {
