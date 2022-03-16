@@ -34,7 +34,7 @@ let options = {
           v-model.number="userValue"
           name="agreement"
         />
-        <label for="'alternative-' + val.toString()">{{ option }}</label>
+        <label :for="'alternative-' + val.toString()">{{ option }}</label>
       </span>
     </fieldset>
     <br />
