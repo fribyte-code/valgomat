@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Valgomat from "./components/Valgomat.vue";
 import { csvStatementsToJson } from "./csvStatementsToJson";
 // Use `?raw` to import file as text https://vitejs.dev/guide/assets.html#importing-asset-as-string
 import fiktiveStatementsCsv from "./data/fiktive-statements.csv?raw";
