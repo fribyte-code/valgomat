@@ -41,6 +41,7 @@ let options = {
             :id="'alternative-' + val.toString()"
             v-model.number="userValue"
             name="agreement"
+            required
           />
           <label :for="'alternative-' + val.toString()">{{ option }}</label>
         </span>
