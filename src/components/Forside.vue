@@ -29,7 +29,7 @@ function restart() {
       <button class="button" @click="hasStarted = true">Start</button>
     </section>
     <section id="valgomat" v-if="hasStarted">
-      <Valgomat :statements="statements" :restart="restart" />
+      <Valgomat :statements="statements" @restart="restart" />
     </section>
 
     <footer class="footer">

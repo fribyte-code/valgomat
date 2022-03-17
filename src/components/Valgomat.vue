@@ -6,7 +6,10 @@ import type { Statement, StatementValue } from "@/types";
 
 defineProps<{
   statements: Statement[];
-  restart: () => void;
+}>();
+
+defineEmits<{
+  restart(): void;
 }>();
 
 const currentStatement = ref(0);
@@ -43,7 +46,7 @@ function handleStatementSubmit(
     class="restart-button button"
     @click="
       currentStatement = 0;
-      restart();
+      $emit('restart');
     "
   >
     Restart
