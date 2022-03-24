@@ -10,13 +10,35 @@ Valgomaten er basert på NRK valgomat sin mattematik som ligger åpen tilgjengel
 
 ## Krav
 
-- [ ] Infoboks om valgomaten
-- [ ] Kunne deploye valgomaten inni for eksempel en wordpress side
-- [ ] Lett kunne bytte ut spørsmål og svar på valgomaten neste år
+- [x] Infoboks om valgomaten
+- [x] Kunne deploye valgomaten inni for eksempel en wordpress side
+- [x] Lett kunne bytte ut spørsmål og svar på valgomaten neste år
 - [x] Vise en lett oversikt over hvor enig man er med hver liste
 - [x] Fungere med keyboard
 
-## Demo
+## Bruk i produksjon:
+
+1. Legg inn csv fil med påstander i `/src/data/` mappen på samme form som `fiktive-statements.csv`:
+
+```CSV
+Spørsmål;ListeA;ListeB
+UiB er best;-2;2
+Bergen er best;1;2
+```
+
+- Hvor første kolonne inneholder spørsmål, og resten av kolonnene inneholder hvor enig eller uenig hver liste er på en skala fra -2 til 2.
+
+2. Bygg vue prosjektet (Dette gjøres i dag i en gitlab pipeline hos friByte)
+3. Deploy prosjektet til https://valgomat.fribyte.no (dette må i dag gjøres manuelt. Ved å slette container på pengebingen hos friByte, kjøre `docker pull image` -> starte container igjen med env variabler som trengs.)
+4. Integrer https://valgomat.fribyte.no som en iFrame i nettsider som skal vise valgomaten med følgende kode:
+
+```HTML
+<iframe src="https://valgomat.fribyte.no" height="600px" />
+```
+
+- Vi anbefaler minimum 600px høyde, bredde settes automatisk til full bredde.
+
+## Demo (utdatert)
 
 ![Demo over valgomaten i bruk](./Valgomat-demo.gif)
 
