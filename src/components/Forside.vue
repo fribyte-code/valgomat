@@ -26,7 +26,15 @@ function restart() {
         Lurer du på hva du skal stemme? Fortvil ikke! Vi har nemlig laget en
         valgomat som hjelper deg med å finne ut hva du skal stemme!
       </p>
+      <br />
       <button class="button" @click="hasStarted = true">Start</button>
+      <br />
+      <p class="explainer-text rem1-2">
+        Valgomaten er laget ved et samarbeid mellom studenter på UiB, finansiert
+        av Studentparlamentet, utviklet av friByte og så har Studvest laget
+        spørsmål og samlet inn informasjon fra de som stiller til valg helt
+        uavhengig.
+      </p>
     </section>
     <section id="valgomat" v-if="hasStarted">
       <Valgomat :statements="statements" @restart="restart" />
@@ -79,10 +87,13 @@ function restart() {
 }
 
 .explainer-text {
-  margin-bottom: 3rem;
   text-align: center;
   max-width: 30rem;
   font-size: 1.3rem;
+}
+
+.rem1-2 {
+  font-size: 1.2rem;
 }
 
 .footer {
