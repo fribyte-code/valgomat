@@ -27,31 +27,32 @@ function handleStatementSubmit(
 </script>
 
 <template>
-  <h1 v-if="currentStatement < statements.length">
-    Valgomat ({{ currentStatement + 1 }} / {{ statements.length }})
-  </h1>
-  <br />
-  <StatementForm
-    v-if="currentStatement < statements.length"
-    :statement="statements[currentStatement]"
-    @submit="handleStatementSubmit"
-  />
-  <Resultat
-    v-if="currentStatement >= statements.length"
-    :userPositions="userPositions"
-    :statements="statements"
-  />
-  <br />
-  <button
-    class="restart-button button"
-    @click="
-      currentStatement = 0;
-      $emit('restart');
-    "
-  >
-    Restart
-  </button>
-  <br />
+  <div id="valgomat">
+    <h1 v-if="currentStatement < statements.length">
+      Valgomat ({{ currentStatement + 1 }} / {{ statements.length }})
+    </h1>
+    <br />
+    <StatementForm
+      v-if="currentStatement < statements.length"
+      :statement="statements[currentStatement]"
+      @submit="handleStatementSubmit"
+    />
+    <Resultat
+      v-if="currentStatement >= statements.length"
+      :userPositions="userPositions"
+      :statements="statements"
+    />
+    <button
+      class="restart-button button"
+      @click="
+        currentStatement = 0;
+        $emit('restart');
+      "
+    >
+      Restart
+    </button>
+    <br />
+  </div>
 </template>
 
 <style scoped>

@@ -12,7 +12,9 @@ const fiktiveStatements = csvStatementsToJson(fiktiveStatementsCsv);
 function getStatementFromUrlParam(): Statement[] {
   const urlParams = new URLSearchParams(window.location.search);
   const statementId = urlParams.get("pastander")?.toLowerCase();
-  console.debug(`Fetching statements based on url param ${statementId}`);
+  console.debug(
+    `Fetching statements based on url param 'pastander': ${statementId}`
+  );
   switch (statementId) {
     case "2022lister":
       // return csvStatementsToJson(lister2022);
@@ -30,22 +32,61 @@ function getStatementFromUrlParam(): Statement[] {
 const statementsToServe = computed(() => {
   return getStatementFromUrlParam();
 });
+
+const themeCSS = computed(() => {
+  const css = { backgroundColor: "#ff8c4b", primary: "#ff8c4b" };
+  const urlParams = new URLSearchParams(window.location.search);
+  const theme = urlParams.get("tema")?.toLowerCase();
+  console.debug(`Fetching theme based on url param 'tema': ${theme}`);
+  if (theme == "studvest") {
+    console.debug("Setting background color to white");
+    css.backgroundColor = "#e3e3e3";
+    css.primary = "#CB1A20";
+  }
+  return css;
+});
 </script>
 
 <template>
-  <Forside :statements="statementsToServe" />
+  <!-- CSS wrapper is required as Vue CSS variable binding binds -->
+  <!-- styles to first root element -->
+  <div id="css-variable-wrapper">
+    <main>
+      <Forside :statements="statementsToServe" />
+    </main>
+  </div>
 </template>
 
 <style>
 @import "./assets/base.css";
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Dynamic css variable binding in vue */
+/* https://vuejs.org/api/sfc-css-features.html#v-bind-in-css */
+#css-variable-wrapper {
+  --color-background: v-bind("themeCSS.backgroundColor");
+  --primary: v-bind("themeCSS.primary");
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
   padding: 1.2rem;
   min-height: 100vh;
   height: 1px; /* fix for stupid bug */
 
   font-weight: normal;
+  color: v-bind("themeCSS.backgroundColor");
+
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>

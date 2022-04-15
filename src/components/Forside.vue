@@ -36,7 +36,7 @@ function restart() {
         uavhengig.
       </p>
     </section>
-    <section id="valgomat" v-if="hasStarted">
+    <section v-if="hasStarted">
       <Valgomat :statements="statements" @restart="restart" />
     </section>
 
@@ -59,6 +59,7 @@ function restart() {
 
 <style scoped>
 .wrapper {
+  max-width: 1280px;
   height: 100%;
   display: flex;
   flex-direction: column;

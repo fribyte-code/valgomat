@@ -16,6 +16,7 @@ Valgomaten er basert på NRK valgomat sin matematikk som ligger åpen tilgjengel
 - [x] Vise en lett oversikt over hvor enig man er med hver liste
 - [x] Fungere med keyboard
 - [x] Støtte flere ulike påstander hvert år som bestemmes med url parameter
+- [ ] Støtte for å definere url hvor påstander skal hentes fra istedenfor å måtte bygge koden på nytt hvert år man har nye påstander
 
 ## Bruk i produksjon:
 
@@ -31,14 +32,15 @@ Bergen er best;Trenger ingen forklaring;1;2
 
 2. Rediger `/src/App.vue` og importer den nye csv filen på liknende vis som de andre. Og legg den til en case i switch operasjonen slik at om url parameteren er for eksempel `2023lister` så vil den nye csv filen bli brukt.
 3. Bygg vue prosjektet (Dette gjøres i dag i en gitlab pipeline hos friByte)
-4. Deploy prosjektet til https://valgomat.fribyte.no (dette må i dag gjøres manuelt. Ved å slette containeren som kjører på pengebingen hos friByte, kjøre `docker pull git.fribyte.no:5050/fribyte/valgomat:latest` -> starte container igjen med env variabler som trengs.) `sudo docker rm -f valgomat; sudo docker pull git.fribyte.no:5050/fribyte/valgomat:latest; sudo docker run --detach --name valgomat --env "VIRTUAL_PORT=3000" --env "VIRTUAL_HOST=valgomat.fribyte.no" --env "LETSENCRYPT_HOST=valgomat.fribyte.no" git.fribyte.no:5050/fribyte/valgomat:latest`
+4. Deploy prosjektet til https://valgomat.fribyte.no (dette må i dag gjøres manuelt. Ved å slette containeren som kjører på pengebingen hos friByte, kjøre `docker pull git.fribyte.no:5050/fribyte/valgomat:latest` -> starte container igjen med env variabler som trengs.) `sudo docker pull git.fribyte.no:5050/fribyte/valgomat:latest; sudo docker rm -f valgomat; sudo docker run --detach --name valgomat --env "VIRTUAL_PORT=3000" --env "VIRTUAL_HOST=valgomat.fribyte.no" --env "LETSENCRYPT_HOST=valgomat.fribyte.no" git.fribyte.no:5050/fribyte/valgomat:latest`
 5. Integrer https://valgomat.fribyte.no?pastander=2023lister som en iframe i nettsider som skal vise valgomaten med følgende kode:
 
 ```HTML
-<iframe src="https://valgomat.fribyte.no?pastander=2023lister" height="600px" />
+<iframe src="https://valgomat.fribyte.no?pastander=2023lister&tema=studvest" height="600px" />
 ```
 
 - Det som står bak `?pastander=` er en url parameter som bestemmer hvilke påstander som skal vises i valgomaten.
+- Legger du til `&tema=studvest` i url vil du få en mer nøytral bakgrunn istedenfor studentparlamentet sin oransje farge.
 - Vi anbefaler minimum 600px høyde, bredde settes automatisk til full bredde, men kan og defineres selv med for eksempel `width="90%"`.
 
 ## Demo (utdatert)
