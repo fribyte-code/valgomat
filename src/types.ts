@@ -1,5 +1,6 @@
 export type Statement = {
   statement: string;
+  description?: string;
   parties: {
     [party: string]: number | StatementValue;
   };

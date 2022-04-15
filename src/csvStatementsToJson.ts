@@ -17,10 +17,12 @@ export function csvStatementsToJson(
 
     const statement: Statement = {
       statement: rows[0],
+      description: rows[1],
       parties: {},
     };
 
-    for (let j = 1; j < rows.length; j++) {
+    const partiesStartRow = 2;
+    for (let j = partiesStartRow; j < rows.length; j++) {
       const party = headers[j];
       const value = Number(rows[j]);
       statement.parties[party] = value;

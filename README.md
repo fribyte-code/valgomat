@@ -21,12 +21,12 @@ Valgomaten er basert på NRK valgomat sin matematikk som ligger åpen tilgjengel
 1. Legg inn csv fil med påstander i `/src/data/` mappen på samme form som `fiktive-statements.csv`:
 
 ```CSV
-Spørsmål;ListeA;ListeB
-UiB er best;-2;2
-Bergen er best;1;2
+Spørsmål;Beskrivelse;ListeA;ListeB
+UiB er best;Saken dreier seg om den evige krigen mellom UiB og HVL;-2;2
+Bergen er best;Trenger ingen forklaring;1;2
 ```
 
-- Hvor første kolonne inneholder spørsmål, og resten av kolonnene inneholder hvor enig eller uenig hver liste er på en skala fra -2 til 2.
+- Hvor første kolonne inneholder spørsmål, andre inneholder en lengre beskrivelse av saken og resten av kolonnene inneholder hvor enig eller uenig hver liste er på en skala fra -2 til 2.
 
 2. Bygg vue prosjektet (Dette gjøres i dag i en gitlab pipeline hos friByte)
 3. Deploy prosjektet til https://valgomat.fribyte.no (dette må i dag gjøres manuelt. Ved å slette container på pengebingen hos friByte, kjøre `docker pull image` -> starte container igjen med env variabler som trengs.)

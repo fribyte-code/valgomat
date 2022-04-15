@@ -49,6 +49,11 @@ let options = {
     </div>
     <br />
     <button class="submit-btn button" type="submit">Neste</button>
+    <br />
+    <p v-if="statement.description">
+      <strong>Her er saken:</strong><br />
+      {{ statement.description }}
+    </p>
   </form>
 </template>
 
@@ -58,9 +63,13 @@ let options = {
   align-items: center;
   flex-direction: column;
 }
+
 p {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 400;
+}
+p strong {
+  font-weight: 900;
 }
 
 .statement-group {
