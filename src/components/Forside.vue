@@ -60,6 +60,7 @@ function restart() {
 <style scoped>
 .wrapper {
   max-width: 1280px;
+  margin: auto;
   height: 100%;
   display: flex;
   flex-direction: column;
