@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import type { Statement, StatementValue } from "@/types";
 
-defineProps<{
+const props = defineProps<{
   statement: Statement;
 }>();
 
@@ -17,6 +17,19 @@ let options = {
   "Litt enig": 1,
   "Helt Enig": 2,
 };
+
+function getPartiesWithOption(optionVal: number): string[] {
+  return Object.entries(props.statement.parties)
+    .filter(([, val]) => val === optionVal)
+    .map(([party]) => party);
+}
+
+function getShortName(name: string): string {
+  return name
+    .split(" ")
+    .map((word) => word[0])
+    .join("");
+}
 </script>
 
 <template>
@@ -35,6 +48,16 @@ let options = {
           v-for="(val, option) in options"
           :key="option"
         >
+          <ul class="parties-with-opinion" v-if="userValue != 0">
+            <li
+              v-for="party in getPartiesWithOption(val)"
+              :key="party"
+              :title="party"
+              style="decoration: none"
+            >
+              {{ getShortName(party) }}
+            </li>
+          </ul>
           <input
             type="radio"
             :value="val"
@@ -62,6 +85,7 @@ let options = {
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-width: 100%;
 }
 
 p {
@@ -86,11 +110,34 @@ p strong {
   font-size: 1.5rem;
   font-weight: 500;
 }
+
+.parties-with-opinion {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  margin-bottom: 0.2em;
+}
+.parties-with-opinion li {
+  text-align: center;
+  text-transform: uppercase;
+  min-height: 1.9em;
+  min-width: 1.9em;
+  padding: 0.4em;
+  line-height: 1;
+  border-radius: 999999px;
+  border: 3px solid lightgrey;
+}
+
 .statement-group .options {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: flex-end;
   gap: 1rem;
+  min-height: 170px;
 }
 .statement-question {
   text-align: center;

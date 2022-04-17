@@ -29,9 +29,8 @@ function handleStatementSubmit(
 <template>
   <div id="valgomat">
     <h1 v-if="currentStatement < statements.length">
-      Valgomat ({{ currentStatement + 1 }} / {{ statements.length }})
+      Spørsmål ({{ currentStatement + 1 }} / {{ statements.length }})
     </h1>
-    <br />
     <StatementForm
       v-if="currentStatement < statements.length"
       :statement="statements[currentStatement]"

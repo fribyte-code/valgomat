@@ -69,7 +69,8 @@ const themeCSS = computed(() => {
 
 main {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  overflow-y: auto;
   margin: 0;
   padding: 1.2rem;
   min-height: 100vh;
@@ -88,5 +89,11 @@ main {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-height: 800px) {
+  main {
+    padding: 0.4rem 0.9rem;
+  }
 }
 </style>

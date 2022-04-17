@@ -113,4 +113,14 @@ function restart() {
 .logo {
   height: 45px;
 }
+
+@media (max-height: 800px) {
+  #valgomat {
+    padding: 0.4rem 0.9rem;
+  }
+
+  .heading {
+    margin-bottom: 1rem;
+  }
+}
 </style>
