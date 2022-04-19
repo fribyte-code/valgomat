@@ -47,7 +47,6 @@ let options = {
         </span>
       </span>
     </div>
-    <br />
     <button class="submit-btn button" type="submit">Neste</button>
     <br />
     <p v-if="statement.description">
@@ -65,7 +64,7 @@ let options = {
 }
 
 p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
 }
 p strong {

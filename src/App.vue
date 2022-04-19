@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { csvStatementsToJson } from "./csvStatementsToJson";
 // Use `?raw` to import file as text https://vitejs.dev/guide/assets.html#importing-asset-as-string
-import fiktiveStatements2 from "./data/2022-statements.json";
+// import fiktiveStatements2 from "./data/2022-statements.json";
+import lister2022CSV from "./data/2022-lister.csv?raw";
 import fiktiveStatementsCsv from "./data/fiktive-statements.csv?raw";
 import Forside from "./components/Forside.vue";
 import type { Statement } from "./types";
@@ -17,15 +18,14 @@ function getStatementFromUrlParam(): Statement[] {
   );
   switch (statementId) {
     case "2022lister":
-      // return csvStatementsToJson(lister2022);
       console.debug("Showing statements for 2022-lister");
-      return fiktiveStatements2;
+      return csvStatementsToJson(lister2022CSV);
     case "2022universitetsstyret":
       // return csvStatementsToJson(universitetsstyret2022);
       console.debug("Showing statements for universitetsstyret");
-      return fiktiveStatements2;
+      return csvStatementsToJson(fiktiveStatementsCsv);
     default:
-      return fiktiveStatements;
+      return csvStatementsToJson(lister2022CSV);
   }
 }
 
