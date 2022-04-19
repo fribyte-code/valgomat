@@ -71,8 +71,8 @@ main {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 1.2rem;
-  min-height: 100vh;
+  padding: 12px;
+  min-height: 100%;
   height: 1px; /* fix for stupid bug */
 
   font-weight: normal;

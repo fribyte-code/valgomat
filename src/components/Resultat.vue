@@ -69,24 +69,24 @@ const agreeMostWithParty = computed(() => orderedDistances.value[0][0]);
 #valgomat-resultat {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
   width: 100%;
-  font-size: 1.3rem;
+  font-size: 20px;
 }
 
 .result-text p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 1.3rem;
+  font-size: 20px;
 }
 .result-label {
   font-weight: 600;
 }
 .aggreement-bar {
-  border-radius: 0.375rem;
+  border-radius: 8px;
   width: 100%;
-  height: 0.5rem;
+  height: 8px;
   background-color: rgba(209, 213, 219, 0.7);
   overflow: hidden;
 }

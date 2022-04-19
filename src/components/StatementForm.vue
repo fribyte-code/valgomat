@@ -64,10 +64,10 @@ let options = {
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: 19px;
   font-weight: 400;
-  padding-left: 0.3rem;
-  padding-right: 0.2rem;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 p strong {
   font-weight: 900;
@@ -78,20 +78,20 @@ p strong {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 24px;
   min-width: 350px;
-  padding: 1rem 0.8rem;
+  padding: 10px 8px;
 }
 .statement-group legend {
   float: left;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 500;
 }
 .statement-group .options {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  gap: 1rem;
+  gap: 16px;
 }
 .statement-question {
   text-align: center;
@@ -105,7 +105,7 @@ p strong {
 
 .radio-option label {
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 18px;
   text-align: center;
 }
 .radio-option input:checked + label {
@@ -113,12 +113,12 @@ p strong {
 }
 
 .submit-btn {
-  margin-top: 1.2rem;
-  padding: 0.7rem 0.75rem;
+  margin-top: 19px;
+  padding: 12px 14px;
   border-radius: 9999px;
   font-weight: bold;
-  width: 10rem;
-  font-size: 1.3rem;
+  width: 160px;
+  font-size: 21px;
 }
 
 input[type="radio"] {
@@ -136,7 +136,7 @@ input[type="radio"] {
   width: 1.9em;
   height: 1.9em;
   border: 0.15em solid currentColor;
-  border-radius: 50%;
+  border-radius: 24px;
   transform: translateY(-0.075em);
 
   display: grid;
@@ -147,7 +147,7 @@ input[type="radio"]::before {
   content: "";
   width: 1em;
   height: 1em;
-  border-radius: 50%;
+  border-radius: 24px;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1.25em 1.25em var(--color-heading);

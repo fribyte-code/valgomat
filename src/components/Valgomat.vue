@@ -67,10 +67,10 @@ function handleStatementSubmit(
   margin: auto;
 }
 .restart-button {
-  margin-top: 3rem;
+  margin-top: 45px;
   border: solid 1px rgb(53, 53, 53);
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 16px;
 }
 .restart-button:hover,
 .restart-button:active,

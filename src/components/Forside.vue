@@ -29,7 +29,7 @@ function restart() {
       <br />
       <button class="button" @click="hasStarted = true">Start</button>
       <br />
-      <p class="explainer-text rem1-2">
+      <p class="explainer-text p16">
         Valgomaten er laget ved et samarbeid mellom studenter på UiB, finansiert
         av Studentparlamentet, utviklet av friByte og så har Studvest laget
         spørsmål og samlet inn informasjon fra de som stiller til valg helt
@@ -77,29 +77,25 @@ function restart() {
   margin: auto;
   background-color: white;
 
-  padding: 2rem;
-  border-radius: 1rem;
+  padding: 10px;
+  border-radius: 24px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.35);
 }
 
 .heading {
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .explainer-text {
   text-align: center;
-  max-width: 30rem;
-  font-size: 1.3rem;
-}
-
-.rem1-2 {
-  font-size: 1.2rem;
+  max-width: 99%;
+  font-size: 18px;
 }
 
 .footer {
-  margin-top: 1.5rem;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;

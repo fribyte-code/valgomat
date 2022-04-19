@@ -71,11 +71,11 @@ button:hover {
 }
 
 .button {
-  font-size: 1.3rem;
-  padding: 0.5rem 1.2rem;
+  font-size: 19px;
+  padding: 8px 32px;
   background-color: white;
   border: solid 2px var(--primary);
-  border-radius: 1rem;
+  border-radius: 16px;
   color: #1c2833;
   font-weight: 300;
   /* box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2); */
