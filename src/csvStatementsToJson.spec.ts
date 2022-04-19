@@ -33,6 +33,7 @@ a;-2;2
 
 b;2;1
 
+;;
 `;
     const expected: Statement[] = [
       {

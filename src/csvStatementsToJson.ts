@@ -21,6 +21,10 @@ export function csvStatementsToJson(
       parties: {},
     };
 
+    if (statement.statement.trim() == "") {
+      continue;
+    }
+
     const partiesStartRow = 2;
     for (let j = partiesStartRow; j < rows.length; j++) {
       const party = headers[j];
