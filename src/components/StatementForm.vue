@@ -66,8 +66,8 @@ let options = {
 p {
   font-size: 19px;
   font-weight: 400;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 p strong {
   font-weight: 900;
