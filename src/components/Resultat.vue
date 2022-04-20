@@ -49,10 +49,11 @@ const agreeMostWithParty = computed(() => orderedDistances.value[0][0]);
       >.
       <br />
       Husk at valgomaten bare er veiledende, og ikke en fasit på hva du skal
-      stemme. Vi oppfordrer til å lese mer om hva listene mener,
+      stemme. Vi oppfordrer til å lese mer om hva listene mener. vi har blant
+      annet intervjuet listekandidatene 
       <a href="https://www.studvest.no/hva-vil-listene-gjore-for-deg/"
-        >for eksempel denne saken.</a
-      >
+        >HER</a
+      >.
     </p>
     <div v-for="[party, dist] of orderedDistances" :key="party">
       <span class="result-text">

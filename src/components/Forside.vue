@@ -26,7 +26,7 @@ function restart() {
       <h1 class="heading">Valgomat</h1>
       <p class="explainer-text">
         Er du i tvil om hva du skal stemme? Test ut årets valgomat! Valgomaten
-        er ment som en veileder, men ingen fasit.
+        er kun ment som en veileder. Det er ikke en ingen fasit på hva du bør stemme.
       </p>
       <br />
       <button class="button" @click="hasStarted = true">Start</button>
@@ -34,7 +34,7 @@ function restart() {
       <p class="explainer-text p16">
         Årets valgomat er finansiert av Studentenes valgstyre, utviklet av
         friByte og redaksjonelt utformet av Studvest, som har samlet informasjon
-        fra de som stiller til valg helt uavhengig av de andre partene.
+        fra listene som stiller til valg helt uavhengig av de andre partene.
       </p>
     </section>
     <section v-if="hasStarted">
