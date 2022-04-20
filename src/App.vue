@@ -33,12 +33,15 @@ const statementsToServe = computed(() => {
   return getStatementFromUrlParam();
 });
 
+const theme = computed(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("tema")?.toLowerCase();
+});
+
 const themeCSS = computed(() => {
   const css = { backgroundColor: "#ff8c4b", primary: "#ff8c4b" };
-  const urlParams = new URLSearchParams(window.location.search);
-  const theme = urlParams.get("tema")?.toLowerCase();
-  console.debug(`Fetching theme based on url param 'tema': ${theme}`);
-  if (theme == "studvest") {
+  console.debug(`Fetching theme based on url param 'tema': ${theme.value}`);
+  if (theme.value == "studvest") {
     console.debug("Setting background color to white");
     css.backgroundColor = "#e3e3e3";
     css.primary = "#CB1A20";
@@ -52,7 +55,7 @@ const themeCSS = computed(() => {
   <!-- styles to first root element -->
   <div id="css-variable-wrapper">
     <main>
-      <Forside :statements="statementsToServe" />
+      <Forside :statements="statementsToServe" :theme="theme" />
     </main>
   </div>
 </template>

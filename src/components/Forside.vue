@@ -6,9 +6,11 @@ import Valgomat from "./Valgomat.vue";
 import studvestLogoSrc from "../assets/logos/studvestlogo.svg";
 import friByteSrc from "../assets/logos/friByte.svg";
 import spuibWhiteSrc from "../assets/logos/SPUIB_LOGO_MARK_WHITE.svg";
+import spuibOrangeSrc from "../assets/logos/SPUIB_LOGO_MARK_ORANGE.svg";
 
 defineProps<{
   statements: Statement[];
+  theme: "studvest" | string;
 }>();
 
 const hasStarted = ref(false);
@@ -23,17 +25,16 @@ function restart() {
     <section id="valgomat" v-if="!hasStarted">
       <h1 class="heading">Valgomat</h1>
       <p class="explainer-text">
-        Lurer du på hva du skal stemme? Fortvil ikke! Vi har nemlig laget en
-        valgomat som hjelper deg med å finne ut hva du skal stemme!
+        Er du i tvil om hva du skal stemme? Test ut årets valgomat! Valgomaten
+        er ment som en veileder, men ingen fasit.
       </p>
       <br />
       <button class="button" @click="hasStarted = true">Start</button>
       <br />
       <p class="explainer-text p16">
-        Valgomaten er laget ved et samarbeid mellom studenter på UiB, finansiert
-        av Studentparlamentet, utviklet av friByte og så har Studvest laget
-        spørsmål og samlet inn informasjon fra de som stiller til valg helt
-        uavhengig.
+        Årets valgomat er finansiert av Studentenes valgstyre, utviklet av
+        friByte og redaksjonelt utformet av Studvest, som har samlet informasjon
+        fra de som stiller til valg helt uavhengig av de andre partene.
       </p>
     </section>
     <section v-if="hasStarted">
@@ -41,7 +42,7 @@ function restart() {
     </section>
 
     <footer class="footer">
-      <p>Laget med kjærlighet av:</p>
+      <p>Laget av:</p>
       <p class="logos">
         <a href="https://studvest.no" target="_blank"
           ><img class="logo" :src="studvestLogoSrc" alt="Studvest"
@@ -50,7 +51,10 @@ function restart() {
           ><img class="logo" :src="friByteSrc" alt="fribyte"
         /></a>
         <a href="https://www.spuib.no/" target="_blank"
-          ><img class="logo" :src="spuibWhiteSrc" alt="Studentparlamentet"
+          ><img
+            class="logo"
+            :src="theme == 'studvest' ? spuibOrangeSrc : spuibWhiteSrc"
+            alt="Studentparlamentet"
         /></a>
       </p>
     </footer>

@@ -44,12 +44,15 @@ const agreeMostWithParty = computed(() => orderedDistances.value[0][0]);
   <section id="valgomat-resultat">
     <h2>Resultat</h2>
     <p>
-      Du er mest enig med <strong>{{ agreeMostWithParty }}</strong
-      >. Les mer om dem og andre lister
-      <a href="https://www.studvalg.no/" target="_blank">her.</a>
+      Ut ifra spørsmålene i denne valgomaten er du mest enig i
+      <strong>{{ agreeMostWithParty }}</strong
+      >.
       <br />
-      Husk at valgomaten bare er veiledende, og ikke en fasit for hva du burde
-      stemme på.
+      Husk at valgomaten bare er veiledende, og ikke en fasit på hva du skal
+      stemme. Vi oppfordrer til å lese mer om hva listene mener,
+      <a href="https://www.studvest.no/hva-vil-listene-gjore-for-deg/"
+        >for eksempel denne saken.</a
+      >
     </p>
     <div v-for="[party, dist] of orderedDistances" :key="party">
       <span class="result-text">
