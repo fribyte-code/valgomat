@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { csvStatementsToJson } from "./csvStatementsToJson";
 // Use `?raw` to import file as text https://vitejs.dev/guide/assets.html#importing-asset-as-string
-// import fiktiveStatements2 from "./data/2022-statements.json";
 import lister2022CSV from "./data/2022-lister.csv?raw";
-import fiktiveStatementsCsv from "./data/fiktive-statements.csv?raw";
+import lister2023CSV from "./data/2023-lister.csv?raw";
 import Forside from "./components/Forside.vue";
 import type { Statement } from "./types";
 import { computed } from "vue";
-
-const fiktiveStatements = csvStatementsToJson(fiktiveStatementsCsv);
 
 function getStatementFromUrlParam(): Statement[] {
   const urlParams = new URLSearchParams(window.location.search);
@@ -16,17 +13,23 @@ function getStatementFromUrlParam(): Statement[] {
   console.debug(
     `Fetching statements based on url param 'pastander': ${statementId}`
   );
+  // Change default statement here every year
+  let statementsCsv = lister2023CSV;
   switch (statementId) {
     case "2022lister":
       console.debug("Showing statements for 2022-lister");
-      return csvStatementsToJson(lister2022CSV);
-    case "2022universitetsstyret":
-      // return csvStatementsToJson(universitetsstyret2022);
-      console.debug("Showing statements for universitetsstyret");
-      return csvStatementsToJson(fiktiveStatementsCsv);
+      statementsCsv = lister2022CSV;
+      break;
+    case "2023lister":
+      console.debug("Showing statements for 2023-lister");
+      statementsCsv = lister2023CSV;
+      break;
     default:
-      return csvStatementsToJson(lister2022CSV);
+      break;
   }
+  const statementsJson = csvStatementsToJson(statementsCsv);
+  console.debug("Statements used:", statementsJson);
+  return statementsJson;
 }
 
 const statementsToServe = computed(() => {
