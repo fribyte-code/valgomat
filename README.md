@@ -31,8 +31,8 @@ Bergen er best;Trenger ingen forklaring;1;2
 - Hvor første kolonne inneholder spørsmål, andre inneholder en lengre beskrivelse av saken og resten av kolonnene inneholder hvor enig eller uenig hver liste er på en skala fra -2 til 2.
 
 2. Rediger `/src/App.vue` og importer den nye csv filen på liknende vis som de andre. Og legg den til en case i switch operasjonen slik at om url parameteren er for eksempel `2023lister` så vil den nye csv filen bli brukt.
-3. Bygg vue prosjektet (Dette gjøres i dag i en gitlab pipeline hos friByte)
-4. Deploy prosjektet til https://valgomat.fribyte.no (dette må i dag gjøres manuelt. Ved å slette containeren som kjører på pengebingen hos friByte, kjøre `docker pull git.fribyte.no:5050/fribyte/valgomat:latest` -> starte container igjen med env variabler som trengs.) `sudo docker pull git.fribyte.no:5050/fribyte/valgomat:latest; sudo docker rm -f valgomat; sudo docker run --detach --name valgomat --env "VIRTUAL_PORT=3000" --env "VIRTUAL_HOST=valgomat.fribyte.no" --env "LETSENCRYPT_HOST=valgomat.fribyte.no" git.fribyte.no:5050/fribyte/valgomat:latest`
+3. Bygg vue prosjektet (Dette gjøres i dag automatisk i GitHub actions)
+4. Deploy prosjektet til https://valgomat.fribyte.no (dette må i dag gjøres manuelt. Ved å slette containeren som kjører på pengebingen hos friByte, kjøre `docker pull /fribyte/valgomat:latest` -> starte container igjen med env variabler som trengs.) `sudo docker pull fribyte/valgomat:latest; sudo docker rm -f valgomat; sudo docker run --detach --name valgomat --env "VIRTUAL_PORT=3000" --env "VIRTUAL_HOST=valgomat.fribyte.no" --env "LETSENCRYPT_HOST=valgomat.fribyte.no" fribyte/valgomat:latest`
 5. Integrer https://valgomat.fribyte.no?pastander=2023lister som en iframe i nettsider som skal vise valgomaten med følgende kode:
 
 ```HTML
@@ -67,7 +67,7 @@ npm run build
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run test:unit
+npm run test
 ```
 
 ### Lint with [ESLint](https://eslint.org/)

@@ -10,7 +10,7 @@ import spuibOrangeSrc from "../assets/logos/SPUIB_LOGO_MARK_ORANGE.svg";
 
 defineProps<{
   statements: Statement[];
-  theme: "studvest" | string;
+  theme?: "studvest" | string;
 }>();
 
 const hasStarted = ref(false);
@@ -26,7 +26,8 @@ function restart() {
       <h1 class="heading">Valgomat</h1>
       <p class="explainer-text">
         Er du i tvil om hva du skal stemme? Test ut årets valgomat! Valgomaten
-        er kun ment som en veileder. Det er ikke en ingen fasit på hva du bør stemme.
+        er kun ment som en veileder. Det er ikke en ingen fasit på hva du bør
+        stemme.
       </p>
       <br />
       <button class="button" @click="hasStarted = true">Start</button>
