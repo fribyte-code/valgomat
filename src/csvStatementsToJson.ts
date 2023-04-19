@@ -4,7 +4,10 @@ export function csvStatementsToJson(
   csvStatements: string,
   divider = ";"
 ): Statement[] {
-  const colSplitterRegex = new RegExp(`(?<!\\\\)${divider}`);
+  // Following regex is not supported by safari 16.3
+  // So we do not support using dividers inside of the statement or description
+  // const colSplitterRegex = new RegExp(`(?<!\\\\)${divider}`);
+  const colSplitterRegex = new RegExp(`${divider}`);
   const lines = csvStatements.split("\n");
   const headers = lines[0].split(colSplitterRegex);
 
