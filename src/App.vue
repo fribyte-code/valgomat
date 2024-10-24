@@ -6,6 +6,7 @@ import lister2023CSV from "./data/2023-lister.csv?raw";
 import Forside from "./components/Forside.vue";
 import type { Statement } from "./types";
 import { computed } from "vue";
+import { themeColor } from "./assets/colors";
 
 function getStatementFromUrlParam(): Statement[] {
   const urlParams = new URLSearchParams(window.location.search);
@@ -42,7 +43,7 @@ const theme = computed(() => {
 });
 
 const themeCSS = computed(() => {
-  const css = { backgroundColor: "#ff8c4b", primary: "#ff8c4b" };
+  const css = { backgroundColor: themeColor, primary: themeColor };
   console.debug(`Fetching theme based on url param 'tema': ${theme.value}`);
   if (theme.value == "studvest") {
     console.debug("Setting background color to white");

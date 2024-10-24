@@ -96,6 +96,6 @@ const agreeMostWithParty = computed(() => orderedDistances.value[0][0]);
 }
 .aggreement-bar .percentage-bar {
   height: 100%;
-  background-color: #ff8c4b;
+  background-color: #99002b;
 }
 </style>
