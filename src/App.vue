@@ -42,7 +42,7 @@ const theme = computed(() => {
 });
 
 const themeCSS = computed(() => {
-  const css = { backgroundColor: "#ff8c4b", primary: "#ff8c4b" };
+  const css = { backgroundColor: "#99002b", primary: "#99002b" };
   console.debug(`Fetching theme based on url param 'tema': ${theme.value}`);
   if (theme.value == "studvest") {
     console.debug("Setting background color to white");
