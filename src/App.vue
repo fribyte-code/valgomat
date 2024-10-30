@@ -3,6 +3,10 @@ import { csvStatementsToJson } from "./csvStatementsToJson";
 // Use `?raw` to import file as text https://vitejs.dev/guide/assets.html#importing-asset-as-string
 import lister2022CSV from "./data/2022-lister.csv?raw";
 import lister2023CSV from "./data/2023-lister.csv?raw";
+import oslomet2024_hv from "./data/2024-oslomet-fakultet-hv.csv?raw";
+import oslomet2024_lui from "./data/2024-oslomet-fakultet-lui.csv?raw";
+import oslomet2024_sam from "./data/2024-oslomet-fakultet-sam.csv?raw";
+import oslomet2024_tkd from "./data/2024-oslomet-fakultet-tkd.csv?raw";
 import Forside from "./components/Forside.vue";
 import type { Statement } from "./types";
 import { computed } from "vue";
@@ -24,6 +28,22 @@ function getStatementFromUrlParam(): Statement[] {
       console.debug("Showing statements for 2023-lister");
       statementsCsv = lister2023CSV;
       break;
+    case "oslomet2024_hv":
+      console.debug("Showing statements for 2024-oslomet-fakultet-hv");
+      statementsCsv = oslomet2024_hv;
+      break;
+    case "oslomet2024_lui":
+      console.debug("Showing statements for 2024-oslomet-fakultet-lui");
+      statementsCsv = oslomet2024_lui;
+      break;
+    case "oslomet2024_sam":
+      console.debug("Showing statements for 2024-oslomet-fakultet-sam");
+      statementsCsv = oslomet2024_sam;
+      break;
+    case "oslomet2024_tkd":
+      console.debug("Showing statements for 2024-oslometfakultet-tkd");
+      statementsCsv = oslomet2024_tkd;
+      break;
     default:
       break;
   }
@@ -42,7 +62,7 @@ const theme = computed(() => {
 });
 
 const themeCSS = computed(() => {
-  const css = { backgroundColor: "#99002b", primary: "#99002b" };
+  const css = { backgroundColor: "#ff8c4b", primary: "#ff8c4b" };
   console.debug(`Fetching theme based on url param 'tema': ${theme.value}`);
   if (theme.value == "studvest") {
     console.debug("Setting background color to white");
