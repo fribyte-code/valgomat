@@ -24,7 +24,7 @@
 
 /* semantic color variables for this project */
 :root {
-  --primary: #99002b;
+  --primary: #ff8c4b;
   --color-background: var(--primary);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
@@ -34,6 +34,7 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
+  --color-text-secondary: var(--vt-c-text-dark-1);
 
   --section-gap: 160px;
 }
