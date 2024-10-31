@@ -32,7 +32,7 @@ function getStatementFromUrlParam(): ValgomatData {
   som har samlet informasjon fra kandidatene som stiller til valg.`;
   const osloMetResultTextHtml = `Husk at valgomaten bare er veiledende, og ikke en fasit på hva du skal
       stemme. Vi oppfordrer til å lese mer om hva kandidatene mener. Les mer om hvordan valg fungerer ved OsloMet
-      <a href="https://www.studentparlamentet.no/valg-2/">HER</a>.`;
+      <a href="https://student.oslomet.no/spvalg">HER</a>.`;
   switch (statementId) {
     case "2022lister":
       console.debug("Showing statements for 2022-lister");
