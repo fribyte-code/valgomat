@@ -2,10 +2,10 @@
 import { ref } from "vue";
 import StatementForm from "./StatementForm.vue";
 import Resultat from "./Resultat.vue";
-import type { Statement, StatementValue } from "@/types";
+import type { Statement, StatementValue, ValgomatData } from "@/types";
 
 defineProps<{
-  statements: Statement[];
+  valgomatData: ValgomatData;
 }>();
 
 defineEmits<{
@@ -28,19 +28,20 @@ function handleStatementSubmit(
 
 <template>
   <div id="valgomat">
-    <h1 v-if="currentStatement < statements.length">
-      Valgomat ({{ currentStatement + 1 }} / {{ statements.length }})
+    <h1 v-if="currentStatement < valgomatData.statements.length">
+      Valgomat ({{ currentStatement + 1 }} /
+      {{ valgomatData.statements.length }})
     </h1>
     <br />
     <StatementForm
-      v-if="currentStatement < statements.length"
-      :statement="statements[currentStatement]"
+      v-if="currentStatement < valgomatData.statements.length"
+      :statement="valgomatData.statements[currentStatement]"
       @submit="handleStatementSubmit"
     />
     <Resultat
-      v-if="currentStatement >= statements.length"
+      v-if="currentStatement >= valgomatData.statements.length"
       :userPositions="userPositions"
-      :statements="statements"
+      :valgomatData="valgomatData"
     />
     <button
       class="restart-button button"

@@ -6,7 +6,12 @@ import Valgomat from "../Valgomat.vue";
 describe("Valgomat", () => {
   it("renders properly", () => {
     const wrapper = mount(Valgomat, {
-      props: { statements: demoStatements },
+      props: {
+        valgomatData: {
+          statements: demoStatements,
+          introTextHtml: "",
+        },
+      },
     });
     expect(wrapper.text()).toContain("Valgomat");
   });

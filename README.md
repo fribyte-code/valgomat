@@ -45,6 +45,7 @@ Integrer https://valgomat.fribyte.no?pastander=2023lister som en iframe i nettsi
 - Det som står bak `?pastander=` er en url parameter som bestemmer hvilke påstander som skal vises i valgomaten.
 
 Følgende påstander eksisterer så langt, flere kommer med tiden:
+
 ```
 2022lister
 2023lister
@@ -52,6 +53,10 @@ Følgende påstander eksisterer så langt, flere kommer med tiden:
 
 - Legger du til `&tema=studvest` i url vil du få en mer nøytral bakgrunn istedenfor studentparlamentet sin oransje farge.
 - Vi anbefaler minimum 600px høyde, bredde settes automatisk til full bredde, men kan og defineres selv med for eksempel `width="90%"`.
+
+## Lage nytt tema
+
+Legger man til `&tema=NAVN-PÅ-TEMA` i url, vil `App.vue` automatisk bytte til andre css farger og bakgrunn. For å lage et nytt tema legger du til en ny case i switch operasjonen i `App.vue` under `themeCSS` og legger til css verdier som passer til ditt tema.
 
 ## Demo (utdatert)
 

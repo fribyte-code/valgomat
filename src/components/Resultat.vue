@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { StatementValue, Statement } from "@/types";
+import type { StatementValue, ValgomatData } from "@/types";
 import { distanceMap } from "@nrk/valg-valgomat-algoritme";
 import { computed } from "vue";
 
@@ -8,7 +8,7 @@ export type Positions = {
 };
 
 const props = defineProps<{
-  statements: Statement[];
+  valgomatData: ValgomatData;
   userPositions: {
     [statement: string]: { value: StatementValue };
   };
@@ -16,7 +16,7 @@ const props = defineProps<{
 
 const partyPositions = computed<{ [party: string]: Positions }>(() => {
   const out: { [party: string]: Positions } = {};
-  for (const statement of props.statements) {
+  for (const statement of props.valgomatData.statements) {
     for (const party in statement.parties) {
       if (!out[party]) {
         out[party] = {};
@@ -48,12 +48,7 @@ const agreeMostWithParty = computed(() => orderedDistances.value[0][0]);
       <strong>{{ agreeMostWithParty }}</strong
       >.
       <br />
-      Husk at valgomaten bare er veiledende, og ikke en fasit på hva du skal
-      stemme. Vi oppfordrer til å lese mer om hva listene mener. vi har blant
-      annet intervjuet listekandidatene
-      <a href="https://www.studvest.no/disse-listene-stiller-til-studentvalget/"
-        >HER</a
-      >.
+      <span v-html="valgomatData.resultTextHtml" />
     </p>
     <div v-for="[party, dist] of orderedDistances" :key="party">
       <span class="result-text">
@@ -96,6 +91,6 @@ const agreeMostWithParty = computed(() => orderedDistances.value[0][0]);
 }
 .aggreement-bar .percentage-bar {
   height: 100%;
-  background-color: #ff8c4b;
+  background-color: var(--primary);
 }
 </style>

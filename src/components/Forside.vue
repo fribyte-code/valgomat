@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Statement } from "@/types";
+import type { ValgomatData } from "@/types";
 import { ref } from "vue";
 import Valgomat from "./Valgomat.vue";
 
@@ -9,8 +9,8 @@ import spuibWhiteSrc from "../assets/logos/SPUIB_LOGO_MARK_WHITE.svg";
 import spuibOrangeSrc from "../assets/logos/SPUIB_LOGO_MARK_ORANGE.svg";
 
 defineProps<{
-  statements: Statement[];
-  theme?: "studvest" | string;
+  valgomatData: ValgomatData;
+  theme?: "studvest" | "oslomet" | string;
 }>();
 
 const hasStarted = ref(false);
@@ -26,20 +26,15 @@ function restart() {
       <h1 class="heading">Valgomat</h1>
       <p class="explainer-text">
         Er du i tvil om hva du skal stemme? Test ut årets valgomat! Valgomaten
-        er kun ment som en veileder. Det er ikke en ingen fasit på hva du bør
-        stemme.
+        er kun ment som en veileder. Det er ingen fasit på hva du bør stemme.
       </p>
       <br />
       <button class="button" @click="hasStarted = true">Start</button>
       <br />
-      <p class="explainer-text p16">
-        Årets valgomat er finansiert av Studentenes valgstyre, utviklet av
-        friByte og redaksjonelt utformet av Studvest, som har samlet informasjon
-        fra listene som stiller til valg helt uavhengig av de andre partene.
-      </p>
+      <p class="explainer-text p16" v-html="valgomatData.introTextHtml" />
     </section>
     <section v-if="hasStarted">
-      <Valgomat :statements="statements" @restart="restart" />
+      <Valgomat :valgomatData="valgomatData" @restart="restart" />
     </section>
 
     <footer class="footer">
@@ -104,6 +99,7 @@ function restart() {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--color-text-secondary);
 }
 
 .logos {
