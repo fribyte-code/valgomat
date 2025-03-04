@@ -11,7 +11,7 @@ defineEmits<{
 }>();
 
 const userValue = ref<StatementValue>(0);
-let options = {
+const options = {
   "Helt uenig": -2,
   "Litt Uenig": -1,
   "Litt enig": 1,

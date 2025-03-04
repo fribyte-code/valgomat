@@ -19,9 +19,9 @@ function getStatementFromUrlParam(): ValgomatData {
   );
   // Change default statement here every year
   let statementsCsv = lister2023CSV;
-  let introTextHtml = `Årets valgomat er finansiert av Studentenes valgstyre, utviklet av
-        friByte og redaksjonelt utformet av Studvest, som har samlet informasjon
-        fra listene som stiller til valg helt uavhengig av de andre partene.`;
+  let introTextHtml = `Årets valgomat er utviklet av
+        friByte og redaksjonelt utformet av Studentparlamentet ved Universitetet i Bergen, som har samlet informasjon
+        fra listene som stiller til valg.`;
   let resultTextHtml = `Husk at valgomaten bare er veiledende, og ikke en fasit på hva du skal
       stemme. Vi oppfordrer til å lese mer om hva listene mener. Vi har blant
       annet intervjuet listekandidatene
