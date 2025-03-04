@@ -40,9 +40,6 @@ function restart() {
     <footer class="footer">
       <p>Laget av:</p>
       <p class="logos">
-        <a href="https://studvest.no" target="_blank"
-          ><img class="logo" :src="studvestLogoSrc" alt="Studvest"
-        /></a>
         <a href="https://fribyte.no" target="_blank"
           ><img class="logo" :src="friByteSrc" alt="fribyte"
         /></a>
