@@ -23,10 +23,8 @@ function getStatementFromUrlParam(): ValgomatData {
   let introTextHtml = `Årets valgomat er utviklet av
         friByte og redaksjonelt utformet av Studentparlamentet ved Universitetet i Bergen, som har samlet informasjon
         fra listene som stiller til valg.`;
-  let resultTextHtml = `Husk at valgomaten bare er veiledende, og ikke en fasit på hva du skal
-      stemme. Vi oppfordrer til å lese mer om hva listene mener. Vi har blant
-      annet intervjuet listekandidatene
-      <a href="https://www.studvest.no/disse-listene-stiller-til-studentvalget/">HER</a>.`;
+  let resultTextHtml = `Husk at valgomaten bare er veiledende, og ikke en fasit på hva du skal stemme. Vi oppforder til å lese mer om kandidatene på
+      <a href="https://studvalg.no/">studvalg.no</a>.`;
   // Following text is used for Oslomet 2024
   const osloMetIntroTextHtml = `Årets valgomat ved Oslomet er utviklet av friByte og
   redaksjonelt utformet av Studentparlamentet ved OsloMet,
