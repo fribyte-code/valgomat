@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { csvStatementsToJson } from "./csvStatementsToJson";
+
 // Use `?raw` to import file as text https://vitejs.dev/guide/assets.html#importing-asset-as-string
 import lister2022CSV from "./data/2022-lister.csv?raw";
 import lister2023CSV from "./data/2023-lister.csv?raw";
@@ -8,10 +9,11 @@ import oslomet2024_hv from "./data/2024-oslomet-fakultet-hv.csv?raw";
 import oslomet2024_lui from "./data/2024-oslomet-fakultet-lui.csv?raw";
 import oslomet2024_sam from "./data/2024-oslomet-fakultet-sam.csv?raw";
 import oslomet2024_tkd from "./data/2024-oslomet-fakultet-tkd.csv?raw";
-import oslomet2025_tkd from "./data/2025-oslomet-tkd.csv?raw";
 import oslomet2025_hv from "./data/2025-oslomet-hv.csv?raw";
-import oslomet2025_sam from "./data/2025-oslomet-sam.csv?raw";
 import oslomet2025_lui from "./data/2025-oslomet-lui.csv?raw";
+import oslomet2025_sam from "./data/2025-oslomet-sam.csv?raw";
+import oslomet2025_tkd from "./data/2025-oslomet-tkd.csv?raw";
+
 import Forside from "./components/Forside.vue";
 import type { ValgomatData } from "./types";
 import { computed } from "vue";
@@ -68,8 +70,32 @@ function getStatementFromUrlParam(): ValgomatData {
       resultTextHtml = osloMetResultTextHtml;
       break;
     case "oslomet2024_tkd":
-      console.debug("Showing statements for 2024-oslometfakultet-tkd");
+      console.debug("Showing statements for 2024-oslomet-fakultet-tkd");
       statementsCsv = oslomet2024_tkd;
+      introTextHtml = osloMetIntroTextHtml;
+      resultTextHtml = osloMetResultTextHtml;
+      break;
+    case "oslomet2025_hv":
+      console.debug("Showing statements for 2025-oslomet-hv");
+      statementsCsv = oslomet2025_hv;
+      introTextHtml = osloMetIntroTextHtml;
+      resultTextHtml = osloMetResultTextHtml;
+      break;
+    case "oslomet2025_lui":
+      console.debug("Showing statements for 2025-oslomet-lui");
+      statementsCsv = oslomet2025_lui;
+      introTextHtml = osloMetIntroTextHtml;
+      resultTextHtml = osloMetResultTextHtml;
+      break;
+    case "oslomet2025_sam":
+      console.debug("Showing statements for 2025-oslomet-sam");
+      statementsCsv = oslomet2025_sam;
+      introTextHtml = osloMetIntroTextHtml;
+      resultTextHtml = osloMetResultTextHtml;
+      break;
+    case "oslomet2025_tkd":
+      console.debug("Showing statements for 2025-oslomet-tkd");
+      statementsCsv = oslomet2025_tkd;
       introTextHtml = osloMetIntroTextHtml;
       resultTextHtml = osloMetResultTextHtml;
       break;
