@@ -5,6 +5,7 @@ import { csvStatementsToJson } from "./csvStatementsToJson";
 import lister2022CSV from "./data/2022-lister.csv?raw";
 import lister2023CSV from "./data/2023-lister.csv?raw";
 import lister2025CSV from "./data/2025-lister.csv?raw";
+import lister2026CSV from "./data/2026-lister.csv?raw";
 import oslomet2024_hv from "./data/2024-oslomet-fakultet-hv.csv?raw";
 import oslomet2024_lui from "./data/2024-oslomet-fakultet-lui.csv?raw";
 import oslomet2024_sam from "./data/2024-oslomet-fakultet-sam.csv?raw";
@@ -25,7 +26,7 @@ function getStatementFromUrlParam(): ValgomatData {
     `Fetching statements based on url param 'pastander': ${statementId}`
   );
   // Change default statement here every year
-  let statementsCsv = lister2025CSV;
+  let statementsCsv = lister2026CSV;
   let introTextHtml = `Årets valgomat er utviklet av
         friByte og redaksjonelt utformet av Studentparlamentet ved Universitetet i Bergen, som har samlet informasjon
         fra listene som stiller til valg.`;
@@ -50,6 +51,10 @@ function getStatementFromUrlParam(): ValgomatData {
     case "2025lister":
       console.debug("Showing statements for 2025-lister");
       statementsCsv = lister2025CSV;
+      break;
+    case "2026lister":
+      console.debug("Showing statements for 2026-lister");
+      statementsCsv = lister2026CSV;
       break;
     case "oslomet2024_hv":
       console.debug("Showing statements for 2024-oslomet-fakultet-hv");
