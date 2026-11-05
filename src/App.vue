@@ -14,6 +14,10 @@ import oslomet2025_hv from "./data/2025-oslomet-hv.csv?raw";
 import oslomet2025_lui from "./data/2025-oslomet-lui.csv?raw";
 import oslomet2025_sam from "./data/2025-oslomet-sam.csv?raw";
 import oslomet2025_tkd from "./data/2025-oslomet-tkd.csv?raw";
+import oslomet2026_hv from "./data/2026-oslomet-hv.csv?raw";
+import oslomet2026_lui from "./data/2026-oslomet-lui.csv?raw";
+import oslomet2026_sam from "./data/2026-oslomet-sam.csv?raw";
+import oslomet2026_tkd from "./data/2026-oslomet-tkd.csv?raw";
 
 import Forside from "./components/Forside.vue";
 import type { ValgomatData } from "./types";
@@ -32,7 +36,7 @@ function getStatementFromUrlParam(): ValgomatData {
         fra listene som stiller til valg.`;
   let resultTextHtml = `Husk at valgomaten bare er veiledende, og ikke en fasit på hva du skal stemme. Vi oppforder til å lese mer om kandidatene på
       <a href="https://studvalg.no/">studvalg.no</a>.`;
-  // Following text is used for Oslomet 2024
+  // Following text is used for OsloMet
   const osloMetIntroTextHtml = `Årets valgomat ved Oslomet er utviklet av friByte og
   redaksjonelt utformet av Studentparlamentet ved OsloMet,
   som har samlet informasjon fra kandidatene som stiller til valg.`;
@@ -101,6 +105,30 @@ function getStatementFromUrlParam(): ValgomatData {
     case "oslomet2025_tkd":
       console.debug("Showing statements for 2025-oslomet-tkd");
       statementsCsv = oslomet2025_tkd;
+      introTextHtml = osloMetIntroTextHtml;
+      resultTextHtml = osloMetResultTextHtml;
+      break;
+    case "oslomet2026_hv":
+      console.debug("Showing statements for 2026-oslomet-hv");
+      statementsCsv = oslomet2026_hv;
+      introTextHtml = osloMetIntroTextHtml;
+      resultTextHtml = osloMetResultTextHtml;
+      break;
+    case "oslomet2026_lui":
+      console.debug("Showing statements for 2026-oslomet-lui");
+      statementsCsv = oslomet2026_lui;
+      introTextHtml = osloMetIntroTextHtml;
+      resultTextHtml = osloMetResultTextHtml;
+      break;
+    case "oslomet2026_sam":
+      console.debug("Showing statements for 2026-oslomet-sam");
+      statementsCsv = oslomet2026_sam;
+      introTextHtml = osloMetIntroTextHtml;
+      resultTextHtml = osloMetResultTextHtml;
+      break;
+    case "oslomet2026_tkd":
+      console.debug("Showing statements for 2026-oslomet-tkd");
+      statementsCsv = oslomet2026_tkd;
       introTextHtml = osloMetIntroTextHtml;
       resultTextHtml = osloMetResultTextHtml;
       break;
